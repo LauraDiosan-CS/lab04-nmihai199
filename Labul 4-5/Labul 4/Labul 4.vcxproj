@@ -119,14 +119,20 @@
     <ClCompile Include="cont_bancar.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Repo.cpp" />
+    <ClCompile Include="RepoTonomat.cpp" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="teste.cpp" />
+    <ClCompile Include="Tonomat.cpp" />
+    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cont_bancar.h" />
     <ClInclude Include="Repo.h" />
+    <ClInclude Include="RepoTonomat.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="teste.h" />
+    <ClInclude Include="Tonomat.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

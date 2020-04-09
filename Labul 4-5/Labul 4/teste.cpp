@@ -4,6 +4,8 @@
 #include<cassert>
 #include<iostream>
 #include "teste.h"
+#include"Tonomat.h"
+#include"RepoTonomat.h"
 using namespace std;
 void teste_Entitate()
 {
@@ -67,11 +69,29 @@ void teste_Service()
 	s.addCont_bancar(o);
 	s.deleteCont_bancar(1);
 
-	assert(s.get_All().show()[1].getSuma() == 1000);
+
 	assert(strcmp(s.get_All().show()[1].getDescriere(), des) == 0);
 	assert(s.getSize() == 2);
 	assert(s.getSize() == 2);
 	assert(s.get_All().show()[1].getZiua() == 11);
 
 	cout << "teste Service trecute cu succes" << endl;
+}
+void teste_Tonomat() 
+{
+	Tonomat t(1, "coca", 10);
+	assert(t.getNume() == "coca"&&t.getPret() == 10 && t.getCod() == 1);
+	t.setCod(14);
+	t.setPret(100);
+	t.setNmme("coca-cola");
+	assert(t.getNume() == "coca-cola"&&t.getPret() == 100 && t.getCod() == 14);
+	
+}
+void test_RepoT()
+{
+	Tonomat t(1, "coca", 10);
+	RepoTonomat r;
+	r.addElem(t);
+	assert(r.getAll()[0].getCod() == 1 && r.getAll()[0].getNume() == "coca"&&r.getAll()[0].getPret() == 10);
+	
 }

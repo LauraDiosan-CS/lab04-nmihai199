@@ -12,6 +12,20 @@ Repo::~Repo()
 {
 }
 
+int Repo::getZi(int zi)
+{
+	int poz = -1;
+
+	for (int i = 0; i < this->get_size(); i++)
+	{
+		if (this->cont[i].getZiua() == zi)
+		{
+			poz = i;
+		}
+	}
+	return poz;
+}
+
 void Repo::add(cont_bancar c)
 {
 	this->cont[this->nr++] = c;
@@ -28,10 +42,29 @@ int Repo::get_size()
 }
 Repo Repo::deleteCont(int zi)
 {
+	int poz = this->getZi(zi);
+	while (poz != -1)
+	{
+		for (int i = poz; i < this->get_size() - 1; i++)
+		{
+			this->cont[i].setDescriere(this->cont[i + 1].getDescriere());
+			this->cont[i].setSuma(this->cont[i + 1].getSuma());
+			this->cont[i].setTip(this->cont[i + 1].getTip());
+			this->cont[i].setZiua(this->cont[i + 1].getZiua());
+		}
+		this->nr -= 1;
+		poz = this->getZi(zi);;
+	}
+	
+	return* this;
+}
+Repo Repo::deleteTip(char* tip)
+{
+
 	int poz = -1;
 	for (int i = 0; i < this->get_size(); i++)
 	{
-		if (this->cont[i].getZiua() == zi)
+		if (strcmp(tip,this->cont[i].getTip()));
 		{
 			poz = i;
 		}
@@ -44,7 +77,7 @@ Repo Repo::deleteCont(int zi)
 		this->cont[i].setZiua(this->cont[i + 1].getZiua());
 	}
 	this->nr -= 1;
-	return* this;
+	return*this;
 }
 Repo Repo::updateCont(int ziua, int suma, char * tip, char * descriere)
 {

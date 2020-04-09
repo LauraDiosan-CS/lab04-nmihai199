@@ -27,6 +27,11 @@ void Service::deleteCont_bancar(int zi)
 
 }
 
+void Service::deleteCont_bancare(char* tip)
+{
+	this->repo.deleteTip(tip);
+}
+
 void Service::updateCont_bancar(int ziua, int suma, char * tip, char * descriere)
 {
 	this->repo.updateCont(ziua, suma, tip, descriere);
